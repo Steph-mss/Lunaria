@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Orchestrea",
+    "description": "Application web de gestion de rendez-vous avec réservation, synchronisation de calendriers, notifications et planning en temps réel. ",
+
+    "image": "/app/assets/SiteAWS-large.png",
+    "link": "https://github.com/Steph-mss/ApplicationMicroservice",
+    "tags": ["Angular 19", "Java ", "Spring Boot","Docker","PostgreSQL", "MongoDB","TypeScript","LESS","Tailwind CSS","MysQL"]
+  },
+  {
+    "title": "Prêt à coder ? Lancez AWS en un clic",
+    "description": "Application web pour créer et gérer des environnements développeurs sur AWS, avec authentification, automatisation des VM, gestion des utilisateurs et notifications.",
+    "image": "/app/assets/AWS.png",
+    "link": "https://github.com/Steph-mss/Application-AWS",
+    "tags": ["React"," Node.js", "Terraform", "Ansible", "AWS Cloud", "JWT","YML"]
+  },
+  {
+    "title": "Flèche d’Argent",
+    "description": "Application web de gestion associative permettant la réservation, l’administration et la communication entre membres en temps réel.",
+    "image": "/app/assets/Fleche.png",
+    "link": "https://github.com/Steph-mss/Fleche_D_ARGENT",
+    "tags": ["Node.js", "Express", "PostgreSQL", "React", "JavaScript"]
+  },
+
+   {
+    "title": "E-shop",
+    "description": "Application web de e-commerce permettant la gestion de produits, de panier et de commandes en temps réel.",
+    "image": "/app/assets/e-shop.png",
+    "link": "https://github.com/Steph-mss/e-shop",
+    "tags": ["React", "Node.js", "Express", "MongoDB", "JavaScript"]
+  },
+
+
+    {
+    "title": "Quizzeo",
+    "description": "Application web de quiz permettant de créer, gérer et réaliser des questionnaires interactifs en temps réel.",
+    "image": "/app/assets/quizzeo.png",
+    "link": "https://github.com/Steph-mss/quizzeo",
+    "tags": [ "PHP", "HTML", "CSS", "CSV"]
+  }
+
+  ,
+
+
+    {
+    "title": "UnityProject",
+    "description": "Au volant de votre bolide, affrontez des vagues de zombies pour atteindre le niveau suivant. Marquez un maximum de points pour améliorer votre arsenal de survie.",
+    "image": "/app/assets/unityproject.png",
+    "link": "https://github.com/Steph-mss/UnityProject",
+    "tags": [ "Unity", "C#", "ShaderLab", "HLSL"]
+  }
+
+  
+]

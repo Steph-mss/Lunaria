@@ -1,0 +1,286 @@
+/* Conteneur principal de la section */
+.projects {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Pseudo-élément pour le fond d'écran dynamique */
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.6);
+  transform: scale(1.1);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: -1;
+}
+
+/* Classe pour activer la visibilité du fond */
+.projects.backgroundActive::before {
+  opacity: 1;
+}
+
+/* Conteneur pour la mise en page en deux colonnes */
+.layoutContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 60px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.layoutContainer[data-status='entering'],
+.layoutContainer[data-status='entered'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Colonne de gauche pour le texte */
+.textColumn {
+  flex: 0 0 400px;
+  position: sticky;
+  top: 120px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* NOUVEAU : Ajout d'une transition pour le changement de couleur */
+  transition: color 0.4s ease;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  /* NOUVEAU : Ajout d'une transition pour le changement de couleur */
+  transition: color 0.4s ease;
+}
+
+/* NOUVEAU : Change la couleur du texte principal quand un projet est survolé */
+.projects.backgroundActive .title,
+.projects.backgroundActive .description {
+  color: white;
+  transition: color 0.4s ease;
+}
+
+/* Colonne de droite pour la liste des projets */
+.projectsColumn {
+  flex: 1;
+  height: 80vh;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+/* Style de la carte de projet */
+.projectCard {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: border-color 0.4s ease;
+}
+
+.projectCard:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.projectCard:last-child {
+  margin-bottom: 0;
+}
+
+.projectImageWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  background: #222;
+}
+
+.projectImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, transparent);
+  transform: translateY(calc(100% - 80px));
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectCard:hover .projectContent {
+  transform: translateY(0);
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  /* MODIFIÉ : Couleur mise en blanc */
+  color: white;
+  margin: 0;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  /* MODIFIÉ : Couleur mise en blanc */
+  color: white;
+  margin: 1rem 0;
+  opacity: 0;
+  transition: opacity 0.4s 0.1s ease;
+}
+
+.projectCard:hover .projectDescription {
+  opacity: 0.8; /* Légère transparence pour un meilleur look */
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.4s 0.2s ease;
+}
+
+.projectCard:hover .projectTags {
+  opacity: 1;
+}
+
+.projectTag {
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  /* MODIFIÉ : Couleur mise en blanc */
+  color: white;
+}
+
+/* Style de la barre de défilement */
+.projectsColumn::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projectsColumn::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projectsColumn::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.footer {
+  opacity: 0;
+
+  &:global {
+    animation: fade-in var(--durationL) ease var(--durationXL) forwards;
+  }
+}
+
+/*
+ * ===========================================
+ * RESPONSIVITÉ
+ * ===========================================
+ */
+
+/* Pour les tablettes et écrans plus petits */
+@media (max-width: 1024px) {
+  .layoutContainer {
+    flex-direction: column;
+    padding: 0 40px; /* Espacement ajusté pour les tablettes */
+    gap: 40px;
+  }
+
+  .textColumn {
+    position: static; /* Le texte ne reste plus fixe au scroll */
+    flex-basis: auto;
+    width: 100%;
+    text-align: center; /* Centrer le texte pour un meilleur look */
+  }
+
+  .projectsColumn {
+    width: 100%;
+    height: auto; /* La hauteur s'adapte au contenu */
+    overflow-y: visible; /* On retire le scroll interne */
+    padding-right: 0;
+  }
+}
+
+/* Pour les téléphones mobiles */
+@media (max-width: 768px) {
+  .projects {
+    min-height: auto;
+    padding: 20px 0;
+  }
+
+  .layoutContainer {
+    padding: 0 20px;
+    gap: 30px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .projectContent {
+    /* Le contenu est toujours visible sur mobile */
+    position: relative;
+    background: #1c1c1c; /* Fond solide pour la lisibilité */
+    transform: none;
+    padding: 20px 15px;
+  }
+
+  .projectTitle {
+    font-size: 1.25rem; /* Taille de titre de carte plus petite */
+  }
+
+  .projectDescription,
+  .projectTags {
+    opacity: 1; /* S'assurer que tout est visible */
+  }
+}
