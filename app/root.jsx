@@ -24,7 +24,6 @@ import config from '~/config.json';
 import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
-import tailwindStyles from './tailwind.css?url';
 
 export const links = () => [
   {
@@ -47,7 +46,6 @@ export const links = () => [
   { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
   { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
-  { rel: 'stylesheet', href: tailwindStyles },
 ];
 
 export const loader = async ({ request, context }) => {
