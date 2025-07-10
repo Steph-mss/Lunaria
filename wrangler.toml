@@ -4,8 +4,9 @@ compatibility_date = "2024-07-10"
 pages_build_output_dir = "build/client"
 
 
+# Vos KV namespaces (facultatif)
 kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
+  { binding = "portfolio_MY_SS", id = "6bbc57c2ccdd498a88e8c223343cbdb6" }
 ]
 
 
