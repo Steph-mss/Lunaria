@@ -1,7 +1,5 @@
-
 name = "lunaria"
 compatibility_date = "2025-07-10"
-
 
 [build]
 command = "npm run build"
@@ -13,6 +11,7 @@ bucket = "./build/client"
 directory = "functions"
 
 pages_build_output_dir = "./build/client"
+
 
 
 
